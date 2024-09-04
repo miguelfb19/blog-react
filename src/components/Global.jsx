@@ -1,6 +1,6 @@
 
 const Global = {
-    url: 'http://localhost:3900/api/'
+    url: 'https://backend-nodejs-blogs-r9x5uhf1j.vercel.app/api/'
 }
 
 
