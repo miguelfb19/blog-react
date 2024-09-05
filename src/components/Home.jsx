@@ -4,7 +4,7 @@ import SideBar from "./SideBar";
 import Articles from "./Articles";
 
 class Home extends Component {
-  title = "Bienvenidos al blog de Miguel desarrollado den React";
+  title = "Bienvenidos al blog de Miguel desarrollado en React";
   state = {
     articlesLast: [],
   };
