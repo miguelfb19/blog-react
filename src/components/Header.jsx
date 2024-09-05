@@ -12,7 +12,7 @@ class Header extends Component {
             <Link to='/home'>
             <img src={logo} className="appLogo" alt="Logotipo" />
             <span id="brand">
-              <strong>Master</strong>React
+              <strong>Blog</strong>React
             </span>
             </Link>
           </div>
