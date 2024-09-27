@@ -56,7 +56,6 @@ const EditArticle = () => {
     event.preventDefault(); //para que no me recargue la página (este es el chiste de las SPA)
 
       try {
-        console.log(id);
         
         let response = await axios.put(`${url}article/${id}`, newArticle);
         
