@@ -54,9 +54,13 @@ const EditArticle = () => {
 
   const saveArticle = async (event) => {
     event.preventDefault(); //para que no me recargue la página (este es el chiste de las SPA)
-    
+
       try {
-        let response = await axios.put(`${url}article/${id}`, newArticle); //hago una peticiñon ayax al APi con el nuevo articulo creado para modificar el existente
+        console.log(id);
+        
+        let response = await axios.put(`${url}article/${id}`, newArticle);
+        
+         //hago una peticion ayax al APi con el nuevo articulo creado para modificar el existente
         if (
           response.data.article &&
           response.data.status.toLowerCase() === "success"
@@ -115,7 +119,7 @@ const EditArticle = () => {
         } else {
           throw new Error();
         }
-      } catch {
+      } catch (error) {
         Swal.fire({
           title: "Error 500",
           text: "No se pudo guardar el artículo en el servidor, intentalo más tarde",
@@ -123,6 +127,8 @@ const EditArticle = () => {
           showCloseButton: true,
           confirmButtonColor: "#4dbad8",
         });
+        console.log(error);
+        
       }
     
   };

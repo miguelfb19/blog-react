@@ -18,7 +18,7 @@ export const AlertImg = () => {
     }, [])
     
   return (
-    <div>AlertImg</div>
+    <></>
   )
 }
 
