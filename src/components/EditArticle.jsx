@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "./Slider";
 import SideBar from "./SideBar";
 import axios from "axios";
@@ -12,14 +12,12 @@ const EditArticle = () => {
   const url = Global.url;
   const navigate = useNavigate();
   //creo las referencias de input de titulo y contenido
-  let titleRef = React.createRef();
-  let contentRef = React.createRef();
+  let titleRef = useRef();
+  let contentRef = useRef();
   //creo una variable state donde guardare la imagen que obtenga del API cuando llame el articulo a editar
   const [image, setImage] = useState(null);
   //creo la variable para guardar el articulo original del API 
   let [article, setArticle]=useState()
-  //creo la variable que almacenara el artículo nuevo
-  let [newArticle, setNewArticle]=useState()
   //variable state de file para guardar el valor del file cuando se agrega un archivo al input
   let [file, setFile] = useState(null);
   //obtengo de la URL el ID del articulo que voy a editar
@@ -45,7 +43,7 @@ const EditArticle = () => {
   };
 
   let changeState =()=>{//creo una funcion que me captura y guarda en el newArticle el artículo modificado, la declaro con un onChange en el form para que se actualice la información de article cada vez que cambia algo en el form
-    setNewArticle({ 
+    setArticle({ 
       title: titleRef.current.value,
       content: contentRef.current.value,
       image: image,
@@ -57,7 +55,7 @@ const EditArticle = () => {
 
       try {
         
-        let response = await axios.put(`${url}article/${id}`, newArticle);
+        let response = await axios.put(`${url}article/${id}`, article);
         
          //hago una peticion ayax al APi con el nuevo articulo creado para modificar el existente
         if (
