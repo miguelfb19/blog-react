@@ -70,7 +70,8 @@ const CreateArticle = () => {
                   navigate("/blog");
                 }, 1000);
               }
-            } catch {
+            } catch (error) {
+              console.error(error)
               Swal.fire({
                 title: "Error 500",
                 text: "Hubo algún problema al subir la imagen, intentalo despúes",
@@ -83,7 +84,7 @@ const CreateArticle = () => {
           }
         }
       } else {
-        throw new Error();
+        throw new Error('Error al guardar el artículo');
       }
     } catch {
       Swal.fire({

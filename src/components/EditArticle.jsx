@@ -26,6 +26,7 @@ const EditArticle = () => {
 // Llama a getArticle apenas se monta el componente
   useEffect(() => {
     getArticle();
+    // eslint-disable-next-line
   }, []);
 
   let getArticle = async () => {
