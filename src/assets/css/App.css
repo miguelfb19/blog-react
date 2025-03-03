@@ -401,14 +401,17 @@ textarea:hover {
 
 .article-detail .image-wrap img {
   float: none;
-  width: 70%;
-  height: 400px;
+  height: 250px;
   display: flex;
-  margin: auto;
+  justify-self: center;
+}
+
+.article-detail{
+  flex-direction: column;
+  gap: 0;
 }
 
 .article-detail .sub-header {
-  margin-bottom: 20px;
   border: none;
 }
 
