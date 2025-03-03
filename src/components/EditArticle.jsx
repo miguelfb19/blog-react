@@ -6,6 +6,7 @@ import Global from "./Global";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import defaultImage from "../assets/images/sinImagen.jpg";
+import { getImagesFromDS3 } from "../services/get-images-from-s3";
 
 const EditArticle = () => {
   //llamo a la url del API y la variable para navegar a otras rutas
@@ -38,7 +39,8 @@ const EditArticle = () => {
         contentRef.current.value = response.data.article.content;
       }
       if (response.data.article.image != null) {
-        setImage(response.data.article.image); //guardo en la variable image la imagen obtenida del API
+        const imgData = await getImagesFromDS3(response.data.article.image)
+        setImage(imgData.fileUrl); //guardo en la variable image la imagen obtenida del API
       }
     } else console.error("No se obtuvieron datos");
   };
@@ -156,7 +158,7 @@ const EditArticle = () => {
             <div className="clearfix"></div>
             <div className="imageEdit">
               {image ? (
-                <img src={`${url}get-image/${image}`} alt='article-image'/>
+                <img src={image} alt='article-image'/>
               ) : (
                 <span>
                   <img src={defaultImage} alt="default-Image" />

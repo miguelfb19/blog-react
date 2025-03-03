@@ -348,6 +348,9 @@ textarea:hover {
 
 .article-item {
   width: 100%;
+  display: flex;
+  place-items: center;
+  gap: 2rem;
   border-bottom: 1px solid #d6d6d6;
   padding-bottom: 20px;
   padding-top: 20px;
@@ -355,12 +358,13 @@ textarea:hover {
 }
 
 .article-item .image-wrap img {
-  width: 130px;
   height: 130px;
-  overflow: hidden; /*todo lo que sobresalga del tamaño estipulado en el elemento, lo borra*/
-  float: left;
-  margin-right: 15px;
-  border: 1px solid #ccc;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  overflow: hidden;
+  border: 1px rgb(217, 217, 217) solid;
+  padding: 1rem;
+  border-radius: 30px;
 }
 
 .article-item h2 {

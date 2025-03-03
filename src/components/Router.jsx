@@ -9,7 +9,7 @@ import ErrorPage from "./ErrorPage";
 import Header from "./Header";
 import Footer from "./Footer";
 import CreateArticle from "./CreateArticle";
-import Article from './Article'
+import ArticleDetail from './ArticleDetail'
 import Search from "./Search";
 import EditArticle from "./EditArticle";
 
@@ -28,7 +28,7 @@ const Router = ()=> {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/search/:searchString" element={<Search />} />
           <Route path='redirect/searchString'/>
-          <Route path="/blog/article/:id" element={<Article />} />
+          <Route path="/blog/article/:id" element={<ArticleDetail />} />
           <Route path="/blog/create" element={<CreateArticle />} />
           <Route path="/blog/edit/:id" element={<EditArticle />} />
           <Route path="*" element={<ErrorPage />} />

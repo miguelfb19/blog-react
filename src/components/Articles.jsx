@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import Moment from "react-moment";
-import "moment/locale/es";
-import { Link } from "react-router-dom";
+
 import axios from "axios";
-import Global from "./Global";
-import defaultImg from "../assets/images/sinImagen.jpg";
+import Global from "./Global"
+import { SingleArticle } from "./SingleArticle";
 
 class Articles extends Component {
   url = Global.url;
@@ -12,6 +10,7 @@ class Articles extends Component {
   state = {
     articles: [],
     status: "",
+    image:"not-image"
   };
 
   componentDidUpdate() {
@@ -88,30 +87,7 @@ class Articles extends Component {
             )}
             {this.state.articles.map((article) => {
               return (
-                <article
-                  className="article-item"
-                  id="article-template"
-                  key={article._id}
-                >
-                  <div className="image-wrap">
-                    {article.image == null ? (
-                      <img src={defaultImg} alt={article.title} />
-                    ) : (
-                      <img
-                        src={this.url + "get-image/" + article.image}
-                        alt={article.title}
-                      />
-                    )}
-                  </div>
-
-                  <h2>{article.title}</h2>
-                  <span className="date">
-                    {" "}
-                    <Moment fromNow>{article.date}</Moment>{" "}
-                  </span>
-                  <Link to={"/blog/article/" + article._id}>Leer más</Link>
-                  <div className="clearfix"></div>
-                </article>
+                <SingleArticle singleArticle={article}/>
               );
             })}
           </div>

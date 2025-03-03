@@ -71,7 +71,6 @@ const CreateArticle = () => {
                 }, 1000);
               }
             } catch (error) {
-              console.error(error)
               Swal.fire({
                 title: "Error 500",
                 text: "Hubo algún problema al subir la imagen, intentalo despúes",
@@ -98,6 +97,7 @@ const CreateArticle = () => {
   };
 
   const fileChange = async (event) => {
+    console.log(event.target.files)
     setFile(event.target.files[0]);
   };
 
